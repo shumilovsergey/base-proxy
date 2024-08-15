@@ -1,8 +1,22 @@
-version: '3.8'
+version: '3'
 
 services:
-  proxy:
-    build: .
+  app:
+    platform: linux/x86_64
+    image: ${IMAGE_NAME}
     ports:
-      - "8888:8888"
+      - "${PORT:-8000}:8888"
     restart: always
+    container_name: "${CONTAINER_NAME}"
+
+
+# version: '3.8'
+
+# services:
+#   proxy:
+#     build: .
+#     ports:
+#       - "8888:8888"
+#     restart: always
+
+
