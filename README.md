@@ -1,2 +1,2 @@
 # base-proxy
-Nginx
+squid proxy
