@@ -1,12 +1,10 @@
 version: '3'
 
 services:
-  app:
-    platform: linux/x86_64
-    image: ${IMAGE_NAME}
+  squid:
+    build: .
     ports:
-      - "${PORT:-8000}:8889"
+      - "8889:8889"
+    volumes:
+      - ./squid.conf:/etc/squid/squid.conf
     restart: always
-    container_name: "${CONTAINER_NAME}"
-
-
