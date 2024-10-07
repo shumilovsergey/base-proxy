@@ -1,10 +1,11 @@
 version: '3'
-
 services:
-  squid:
+  squid-proxy:
     build: .
+    container_name: squid_proxy
     ports:
-      - "8889:8889"
+      - "8889:8889"  # Expose the Squid port
     volumes:
-      - ./squid.conf:/etc/squid/squid.conf
-    restart: always
+      - ./squid.conf:/etc/squid/squid.conf   # Mount the squid.conf for easy modification
+      - ./session_timeout.py:/usr/local/bin/session_timeout.py  # Mount the session_timeout script
+    restart: unless-stopped
