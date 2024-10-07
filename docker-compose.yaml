@@ -7,4 +7,5 @@ services:
       - "8889:8889"
     volumes:
       - ./squid.conf:/etc/squid/squid.conf
+      - ./session_timeout.py:/usr/local/bin/session_timeout.py
     restart: always
